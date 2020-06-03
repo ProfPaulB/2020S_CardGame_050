@@ -19,7 +19,21 @@ public class CardGame {
         
         Scanner input = new Scanner(System.in);
         
-        Card[] cardHand = CardHandGenerator.generateHand(7);
+        Card[] cardHand = new Card[20];
+        Random random = new Random();
+        
+        for (int i = 0; i < cardHand.length; i++) {
+            
+            Value value = 
+                    Card.Value.values()[random.nextInt(Card.Value.values().length)];
+            
+            Suit suit = 
+                    Card.Suit.values()[random.nextInt(Card.Suit.values().length)];
+            
+            Card card = new Card(value, suit);
+            
+            cardHand[i] = card;      
+        }
         
         System.out.println("Here are the cards:");
         for (Card card: cardHand) {
